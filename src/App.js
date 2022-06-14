@@ -10,7 +10,7 @@ function App() {
       <h3>Abaixo Formulário de Auto Preenchimento com Pros</h3>
       <MyForm1 user={{ name:"Josias", 
       email:"josias@gmail.com", 
-      age: 25 }} /> {/* 2 Formulário de Edição / como transferir esses dados para os inputs?*/}
+      age: 25 }} /> {/* 2 Formulário de Edição / como transferir esses dados para os inputs? / passando props para o preenchimento*/}
     </div> 
   );
 }

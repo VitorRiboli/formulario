@@ -9,6 +9,7 @@ const MyForm = () => {
     const [email, setEmail] = useState();
     const [age, setAge] = useState();
     const [bio, setBio] = useState("");
+    const [role, setRole] = useState("");
 
 
     const handleName = (e) => {
@@ -26,7 +27,7 @@ const MyForm = () => {
     const handleSubmit = (event) => { //pode chamar de e ou event.
         event.preventDefault(); // ESSE EVENTO PREVINE O ENVIO DO FORMULÁRIO 
         console.log("ENVIANDO");
-        console.log(name, email, age, bio);
+        console.log(name, email, age, bio, role);
 
         //Limpando formulário, basta adicionar uma string vazia no setArtibuto
         setName("");
@@ -64,7 +65,15 @@ const MyForm = () => {
                     value={bio}>
                     </textarea>
                 </label>
-
+                {/* 9 Select */}
+                <label>
+                    <span>Função no Sistema</span>
+                    <select name='role' onChange={(e) => setRole(e.target.value)}>
+                        <option value="user" >Usuário</option>
+                        <option value="editor" >Editor</option>
+                        <option value="admin" >Administrador</option>
+                    </select>
+                </label>
 
                 <input type="submit" value="Enviar" />
             </form>
