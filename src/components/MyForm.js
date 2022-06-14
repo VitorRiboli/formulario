@@ -8,6 +8,7 @@ const MyForm = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [age, setAge] = useState();
+    const [bio, setBio] = useState("");
 
 
     const handleName = (e) => {
@@ -20,11 +21,18 @@ const MyForm = () => {
     //console.log(name);
     //console.log(email);
     //console.log(age); //chamando no console
+    
 
     const handleSubmit = (event) => { //pode chamar de e ou event.
         event.preventDefault(); // ESSE EVENTO PREVINE O ENVIO DO FORMULÁRIO 
         console.log("ENVIANDO");
-        console.log(name, email, age);
+        console.log(name, email, age, bio);
+
+        //Limpando formulário, basta adicionar uma string vazia no setArtibuto
+        setName("");
+        setEmail("");
+        setAge("");
+        setBio("");
     };
 
     return (
@@ -34,18 +42,30 @@ const MyForm = () => {
             <form onSubmit={handleSubmit}> {/*onSubmit para enviar o formulário, a função handleSubmit é a função apos o envio */}
                 <div>
                     <label htmlFor="name">Nome</label>
-                    <input type="text" name="name" placeholder="Digite seu Nome!" onChange={handleName}/>
+                    <input type="text" name="name" placeholder="Digite seu Nome!" onChange={handleName} />
                 </div>
                 {/* 2 Label envolveldo input */}
                 <label>
                     <span>E-mail</span> { /*SPAN: Utilizando o span para ter mais controle para editar no CSS posteriormente*/}
-                    <input type="email" name="email" placeholder="Digite seu E-mail!" 
-                    onChange={(e) => setEmail(e.target.value)} /> {/*4 SIMPLIFICANDO A MANIPULAÇÃO DE FORMA / Lembrando que é muito melhor fazer uem um função separada, como em name e idade / passando o valor do inpt */}
+                    <input type="email" name="email" placeholder="Digite seu E-mail!"
+                        onChange={(e) => setEmail(e.target.value)} /> {/*4 SIMPLIFICANDO A MANIPULAÇÃO DE FORMA / Lembrando que é muito melhor fazer uem um função separada, como em name e idade / passando o valor do inpt */}
                 </label>
                 <label>
                     <span>Idade</span> { /*Utilizando o span para ter mais controle para editar no CSS posteriormente*/}
                     <input type="number" name="age" placeholder="Digite sua Idade" onChange={handleAge} />
                 </label>
+                {/* 8 Textarea */}
+                <label> {/*Pode usar a estrategia de label para melhor organização */}
+                    <span>Bio:</span>
+                    <textarea 
+                    name='bio' 
+                    placeholder='descricao do usuário'
+                    onChange={(e) => setBio(e.target.value)}
+                    value={bio}>
+                    </textarea>
+                </label>
+
+
                 <input type="submit" value="Enviar" />
             </form>
         </div>

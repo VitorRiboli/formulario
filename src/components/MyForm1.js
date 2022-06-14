@@ -25,6 +25,17 @@ const MyForm1 = ({user}) => {  // 1* passei a prop {user}
         event.preventDefault(); // ESSE EVENTO PREVINE O ENVIO DO FORMULÁRIO 
         console.log("ENVIANDO");
         console.log(name, email, age);
+
+        //validação
+
+        
+        //envio
+
+
+        // Limpando Formulário
+        setName('');
+        setEmail('');
+        setAge('');
     };
 
     return (
